@@ -5,14 +5,14 @@ void setup_pins(void) {
     // Set CLOCK_PIN_SHDN, CLOCK_PIN1 and CLOCK_PIN2 as output
     DDRB |= (1 << CLOCK_PIN_SHDN) | (1 << CLOCK_PIN1) | (1 << CLOCK_PIN2);
 
-    DDRD &= ~(1 << PD2);                // Set PD2 as input (INT0)
-    PORTD &= ~(1 << PD2);               // Enable internal pull-up on PD2
+    DDRD &= ~((1 << PD2) | (1 << PD3)); // Set PD2, PD3 as inputs (INT0, JP0)
+    PORTD |= (1 << PD2) | (1 << PD3);   // Enable internal pull-up on PD2, PD3
 }
 
 
 void enable_24v(void) {
     PORTB |= (1 << CLOCK_PIN_SHDN);     // Enable MAX629 (High)
-    _delay_ms(50);                      // Give IC time to get ready
+    _delay_ms(25);                  // Give IC time to get ready
 }
 
 
@@ -44,14 +44,16 @@ uint8_t generate_clock_pulse(uint8_t last_pulse) {
 
 
 void enable_clock_interrupt(void) {
-    EICRA |= (1 << ISC01) | (1 << ISC00);   // The rising edge of INT0 generates an interrupt request
-    EIMSK |= (1 << INT0);                   // Enable external interrupt INT0
+    //EICRA |= (1 << ISC01) | (1 << ISC00);     // The rising edge of INT0 generates an interrupt request
+    EICRA &= ~((1 << ISC01) | (1 << ISC00));    // Low level on INT0 generates an interrupt request
+    EIMSK |= (1 << INT0);                       // Enable external interrupt INT0
 }
 
 
-void increment_time(time_struct *clock) {
+void increment_time(time_struct *clock, uint8_t last_pulse) {
     clock->minutes = (clock->minutes + 1) % 60;
     if (clock->minutes == 0) {
         clock->hours = (clock->hours + 1) % 12;
     }
+    clock->hours = (clock->hours % 12) + (last_pulse - 1) * 12;
 }

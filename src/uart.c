@@ -30,7 +30,7 @@ void uart_transmit(uint8_t data) {
 
 void uart_puts(char *string) {
     while (*string) {
-        uart_transmit((uint8_t) * string);
+        uart_transmit((uint8_t) *string);
         string++;
     }
 }

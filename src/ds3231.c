@@ -5,11 +5,50 @@ static uint8_t bcd_to_bin(uint8_t val) { return val - 6 * (val >> 4); }
 
 static uint8_t bin_to_bcd(uint8_t val) { return val + 6 * (val / 10); }
 
+void rtc_enable_alarm2(void) {
+    twi_start(ADDRESS_WRITE);
+    twi_write(0xB); // Set pointer to Alarm2 Register
+    twi_write(1 << 7); // Enable A2M2
+    twi_write(1 << 7); // Enable A2M3
+    twi_write(1 << 7); // Enable A2M4
+    twi_stop();
+}
 
-void rtc_enable_sqw(void) {
+uint8_t rtc_read_control(void) {
     twi_start(ADDRESS_WRITE);
     twi_write(0xE); // Set pointer to Control Register
-    twi_write(0); // Enable 1Hz square wave output on INT
+    twi_stop();
+
+    twi_start(ADDRESS_READ);
+    uint8_t control = twi_read(0);
+    twi_stop();
+
+    return control;
+}
+
+void rtc_write_control(uint8_t control) {
+    twi_start(ADDRESS_WRITE);
+    twi_write(0xE); // Set pointer to Control Register
+    twi_write(control);
+    twi_stop();
+}
+
+uint8_t rtc_read_status(void) {
+    twi_start(ADDRESS_WRITE);
+    twi_write(0xF); // Set pointer to Status Register
+    twi_stop();
+
+    twi_start(ADDRESS_READ);
+    uint8_t status = twi_read(0);
+    twi_stop();
+
+    return status;
+}
+
+void rtc_write_status(uint8_t status) {
+    twi_start(ADDRESS_WRITE);
+    twi_write(0xF); // Set pointer to Status Register
+    twi_write(status);
     twi_stop();
 }
 
@@ -56,17 +95,4 @@ void rtc_write_alarm1(time_struct *clock) {
     twi_write(bin_to_bcd(clock->minutes));
     twi_write(bin_to_bcd(clock->hours));
     twi_stop();
-}
-
-
-uint8_t rtc_read_status(void) {
-    twi_start(ADDRESS_WRITE);
-    twi_write(0xF); // Set pointer to Status Register
-    twi_stop();
-
-    twi_start(ADDRESS_READ);
-    uint8_t status = twi_read(0);
-    twi_stop();
-
-    return status;
 }
