@@ -1,0 +1,8 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP MAX629
+D 28V, Low-Power, High-Voltage, Boost or Inverting DC-DC Converter
+F https://datasheets.maximintegrated.com/en/ds/MAX629.pdf
+$ENDCMP
+#
+#End Doc Library
