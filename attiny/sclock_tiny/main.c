@@ -83,11 +83,11 @@ int main(void) {
 	
 	DS3231_enable_alarm2();							// Set Alarm2 mask to get alerted every minute
 	DS3231_write_control((1 << DS3231_CTRL_INTCN)	// Enable alarm function on INT pin
-		| (1 << DS3231_CTRL_A2IE));					// Activate Alarm2 interrupt
+	| (1 << DS3231_CTRL_A2IE));						// Activate Alarm2 interrupt
 	DS3231_write_status(0);							// Clear interrupt flags
 	
 	CLOCK_enable_interrupt();
-		
+	
 	while (1) {
 		uint8_t status = DS3231_read_status();
 		if (status & (1 << DS3231_STATUS_A2F)) {	// Check if DS3231 woke us with Alarm2
@@ -108,7 +108,7 @@ int main(void) {
 		}
 		if (queue > 0) {
 			RTC_sleep(RTC_MS_TO_PERIOD(500));
-		} else {
+			} else {
 			SLPCTRL.CTRLA = SLPCTRL_SMODE_PDOWN_gc | SLPCTRL_SEN_bm;
 			sleep_cpu();
 			SLPCTRL.CTRLA = 0;
@@ -116,8 +116,8 @@ int main(void) {
 		//TWI0.MCTRLB |= TWI_FLUSH_bm;
 		//TWI0.MSTATUS |= TWI_BUSSTATE_IDLE_gc;
 	}
- }
- 
+}
+
 ISR(PORTA_PORT_vect) {
 	VPORTA.INTFLAGS |= CLOCK_PIN_INT;
 }

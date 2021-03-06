@@ -21,7 +21,7 @@ void RTC_init(void) {
 void RTC_sleep(uint16_t period) {
 	// Set sleep mode
 	SLPCTRL.CTRLA = SLPCTRL_SMODE_STDBY_gc | SLPCTRL_SEN_bm;
-		
+	
 	// Set period
 	while (RTC.STATUS & RTC_PERBUSY_bm);
 	RTC.PER = period;

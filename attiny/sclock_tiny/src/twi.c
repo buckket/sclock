@@ -31,7 +31,7 @@ uint8_t TWI0_read(uint8_t ack) {
 	uint8_t data = TWI0.MDATA;
 	if (ack) {
 		TWI0.MCTRLB |= TWI_MCMD_RECVTRANS_gc;
-	} else {
+		} else {
 		TWI0.MCTRLB |= TWI_ACKACT_NACK_gc;
 		TWI0.MCTRLB |= TWI_MCMD_STOP_gc;
 	}
@@ -41,6 +41,6 @@ uint8_t TWI0_read(uint8_t ack) {
 uint8_t TWI0_write(uint8_t data) {
 	while (!(TWI0.MSTATUS & TWI_WIF_bm));
 	TWI0.MDATA = data;
-	TWI0.MCTRLB = TWI_MCMD_RECVTRANS_gc; 
+	TWI0.MCTRLB = TWI_MCMD_RECVTRANS_gc;
 	return TWI0.MSTATUS & TWI_RXACK_bm;
 }
