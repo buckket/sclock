@@ -6,15 +6,16 @@
 
 #include "rtc.h"
 
-#define CLOCK_PULSE 100
-#define CLOCK_VWAIT 25
+#define CLOCK_PULSE         100
+#define CLOCK_VWAIT         25
+#define CLOCK_COOLDOWN      500
 
-#define CLOCK_PIN_SHDN		PIN1_bm
-#define CLOCK_PIN1			PIN2_bm
-#define CLOCK_PIN2			PIN3_bm
+#define CLOCK_PIN_SHDN      PIN1_bm
+#define CLOCK_PIN1          PIN2_bm
+#define CLOCK_PIN2          PIN3_bm
 
-#define CLOCK_PIN_INT		PIN6_bm
-#define CLOCK_PIN_CONFIG	PIN7_bm
+#define CLOCK_PIN_INT       PIN6_bm
+#define CLOCK_PIN_CONFIG    PIN7_bm
 
 typedef struct {
 	volatile uint8_t seconds;
