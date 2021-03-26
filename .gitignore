@@ -2,3 +2,5 @@
 .idea
 CMake*
 cmake*
+attiny/sclock_tiny/Debug
+attiny/sclock_tiny/Release
