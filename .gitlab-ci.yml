@@ -1,0 +1,20 @@
+image: python:2.7
+
+stages:
+ - test
+
+before_script:
+  - "pip install -U platformio"
+
+atmega:
+  stage: test
+  script:
+    - cd atmega
+    - pio run
+
+attiny:
+  stage: test
+  script:
+    - cd attiny/sclock_tiny
+    - pio run
+
