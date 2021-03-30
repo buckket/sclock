@@ -27,11 +27,11 @@ void CLOCK_init(void);
 
 uint8_t CLOCK_generate_pulse(uint8_t last_pulse);
 
-inline void CLOCK_enable_interrupt(void) {
+static inline void CLOCK_enable_interrupt(void) {
 	PORTA.PIN6CTRL |= PORT_ISC_LEVEL_gc;
 }
 
-inline void CLOCK_disable_interrupt(void) {
+static inline void CLOCK_disable_interrupt(void) {
 	PORTA.PIN6CTRL &= ~PORT_ISC_gm;
 }
 
