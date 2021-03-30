@@ -11,10 +11,18 @@ atmega:
   script:
     - cd atmega
     - pio run
+  artifacts:
+    paths:
+      - atmega/.pio/build/ATmega328P/firmware.hex
+      - atmega/.pio/build/pro8MHzatmega328/firmware.hex
 
 attiny:
   stage: test
   script:
     - cd attiny/sclock_tiny
     - pio run
+  artifacts:
+    paths:
+      - attiny/sclock_tiny/.pio/build/release/firmware.hex
+      - attiny/sclock_tiny/.pio/build/debug/firmware.hex
 
