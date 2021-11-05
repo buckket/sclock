@@ -31,7 +31,7 @@ U 1 1 6056D32C
 P 1650 2450
 F 0 "Q2" H 1841 2496 50  0000 L CNN
 F 1 "MMBT3904" H 1841 2405 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 1850 2375 50  0001 L CIN
+F 2 "Package_TO_SOT_SMD:SOT-23_Handsoldering" H 1850 2375 50  0001 L CIN
 F 3 "https://www.onsemi.com/pub/Collateral/2N3903-D.PDF" H 1650 2450 50  0001 L CNN
 F 4 "MMBT3904LT1G" H 1650 2450 50  0001 C CNN "MPN"
 F 5 "NPN 40V 200mA" H 1650 2450 50  0001 C CNN "Value Modifier"
@@ -44,7 +44,7 @@ U 1 1 6056E114
 P 1650 1450
 F 0 "Q1" H 1841 1496 50  0000 L CNN
 F 1 "MMBT3904" H 1841 1405 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 1850 1375 50  0001 L CIN
+F 2 "Package_TO_SOT_SMD:SOT-23_Handsoldering" H 1850 1375 50  0001 L CIN
 F 3 "https://www.onsemi.com/pub/Collateral/2N3903-D.PDF" H 1650 1450 50  0001 L CNN
 F 4 "MMBT3904LT1G" H 1650 1450 50  0001 C CNN "MPN"
 F 5 "NPN 40V 200mA" H 1650 1450 50  0001 C CNN "Value Modifier"
@@ -57,7 +57,7 @@ U 1 1 6056F506
 P 3200 2450
 F 0 "Q3" H 3391 2496 50  0000 L CNN
 F 1 "MMBT3904" H 3391 2405 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 3400 2375 50  0001 L CIN
+F 2 "Package_TO_SOT_SMD:SOT-23_Handsoldering" H 3400 2375 50  0001 L CIN
 F 3 "https://www.onsemi.com/pub/Collateral/2N3903-D.PDF" H 3200 2450 50  0001 L CNN
 F 4 "MMBT3904LT1G" H 3200 2450 50  0001 C CNN "MPN"
 F 5 "NPN 40V 200mA" H 3200 2450 50  0001 C CNN "Value Modifier"
@@ -70,7 +70,7 @@ U 1 1 6056FEBF
 P 5000 2450
 F 0 "Q5" H 5191 2496 50  0000 L CNN
 F 1 "MMBT3904" H 5191 2405 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 5200 2375 50  0001 L CIN
+F 2 "Package_TO_SOT_SMD:SOT-23_Handsoldering" H 5200 2375 50  0001 L CIN
 F 3 "https://www.onsemi.com/pub/Collateral/2N3903-D.PDF" H 5000 2450 50  0001 L CNN
 F 4 "MMBT3904LT1G" H 5000 2450 50  0001 C CNN "MPN"
 F 5 "NPN 40V 200mA" H 5000 2450 50  0001 C CNN "Value Modifier"
@@ -83,7 +83,7 @@ U 1 1 60571E3E
 P 5200 1450
 F 0 "Q6" H 4850 1400 50  0000 L CNN
 F 1 "MMBT3906" H 4550 1500 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 5400 1375 50  0001 L CIN
+F 2 "Package_TO_SOT_SMD:SOT-23_Handsoldering" H 5400 1375 50  0001 L CIN
 F 3 "https://www.onsemi.com/pub/Collateral/2N3906-D.PDF" H 5200 1450 50  0001 L CNN
 F 4 "MMBT3906LT1G" H 5200 1450 50  0001 C CNN "MPN"
 F 5 "PNP 40V 200mA" H 5200 1450 50  0001 C CNN "Value Modifier"
@@ -96,7 +96,7 @@ U 1 1 60573679
 P 2700 1450
 F 0 "D2" V 2654 1530 50  0000 L CNN
 F 1 "1N4148WS" V 2745 1530 50  0000 L CNN
-F 2 "Diode_SMD:D_SOD-323" H 2700 1275 50  0001 C CNN
+F 2 "Diode_SMD:D_SOD-323_HandSoldering" H 2700 1275 50  0001 C CNN
 F 3 "https://www.vishay.com/docs/85751/1n4148ws.pdf" H 2700 1450 50  0001 C CNN
 F 4 "1N4148WS" H 2700 1450 50  0001 C CNN "MPN"
 F 5 "75V 150mA" H 2700 1450 50  0001 C CNN "Value Modifier"
@@ -109,7 +109,7 @@ U 1 1 60574875
 P 3900 2450
 F 0 "D3" V 3854 2530 50  0000 L CNN
 F 1 "1N4148WS" V 3945 2530 50  0000 L CNN
-F 2 "Diode_SMD:D_SOD-323" H 3900 2275 50  0001 C CNN
+F 2 "Diode_SMD:D_SOD-323_HandSoldering" H 3900 2275 50  0001 C CNN
 F 3 "https://www.vishay.com/docs/85751/1n4148ws.pdf" H 3900 2450 50  0001 C CNN
 F 4 "1N4148WS" H 3900 2450 50  0001 C CNN "MPN"
 F 5 "75V 150mA" H 3900 2450 50  0001 C CNN "Value Modifier"
@@ -122,7 +122,7 @@ U 1 1 60575518
 P 4500 1450
 F 0 "D4" V 4454 1530 50  0000 L CNN
 F 1 "1N4148WS" V 4545 1530 50  0000 L CNN
-F 2 "Diode_SMD:D_SOD-323" H 4500 1275 50  0001 C CNN
+F 2 "Diode_SMD:D_SOD-323_HandSoldering" H 4500 1275 50  0001 C CNN
 F 3 "https://www.vishay.com/docs/85751/1n4148ws.pdf" H 4500 1450 50  0001 C CNN
 F 4 "1N4148WS" H 4500 1450 50  0001 C CNN "MPN"
 F 5 "75V 150mA" H 4500 1450 50  0001 C CNN "Value Modifier"
@@ -135,7 +135,7 @@ U 1 1 605778D1
 P 5700 2450
 F 0 "D5" V 5654 2530 50  0000 L CNN
 F 1 "1N4148WS" V 5745 2530 50  0000 L CNN
-F 2 "Diode_SMD:D_SOD-323" H 5700 2275 50  0001 C CNN
+F 2 "Diode_SMD:D_SOD-323_HandSoldering" H 5700 2275 50  0001 C CNN
 F 3 "https://www.vishay.com/docs/85751/1n4148ws.pdf" H 5700 2450 50  0001 C CNN
 F 4 "1N4148WS" H 5700 2450 50  0001 C CNN "MPN"
 F 5 "75V 150mA" H 5700 2450 50  0001 C CNN "Value Modifier"
@@ -183,34 +183,34 @@ Wire Wire Line
 	2700 1600 2700 1650
 Wire Wire Line
 	2700 1650 3300 1650
-Text GLabel 1050 1450 0    50   Input ~ 0
+Text GLabel 1000 1450 0    50   Input ~ 0
 CPULSE1
-Text GLabel 1050 2450 0    50   Input ~ 0
+Text GLabel 1000 2450 0    50   Input ~ 0
 CPULSE2
 $Comp
 L Device:R R1
 U 1 1 60609748
-P 1250 1450
-F 0 "R1" V 1457 1450 50  0000 C CNN
-F 1 "31.6k" V 1366 1450 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1180 1450 50  0001 C CNN
-F 3 "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_11.pdf" H 1250 1450 50  0001 C CNN
-F 4 "RC0805FR-0731K6L" H 1250 1450 50  0001 C CNN "MPN"
-F 5 "1% 1/8W" H 1250 1450 50  0001 C CNN "Value Modifier"
-	1    1250 1450
+P 1200 1450
+F 0 "R1" V 1407 1450 50  0000 C CNN
+F 1 "31.6k" V 1316 1450 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1130 1450 50  0001 C CNN
+F 3 "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_11.pdf" H 1200 1450 50  0001 C CNN
+F 4 "RC0805FR-0731K6L" H 1200 1450 50  0001 C CNN "MPN"
+F 5 "1% 1/8W" H 1200 1450 50  0001 C CNN "Value Modifier"
+	1    1200 1450
 	0    -1   -1   0   
 $EndComp
 $Comp
 L Device:R R2
 U 1 1 6060A03C
-P 1250 2450
-F 0 "R2" V 1457 2450 50  0000 C CNN
-F 1 "31.6k" V 1366 2450 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1180 2450 50  0001 C CNN
-F 3 "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_11.pdf" H 1250 2450 50  0001 C CNN
-F 4 "RC0805FR-0731K6L" H 1250 2450 50  0001 C CNN "MPN"
-F 5 "1% 1/8W" H 1250 2450 50  0001 C CNN "Value Modifier"
-	1    1250 2450
+P 1200 2450
+F 0 "R2" V 1407 2450 50  0000 C CNN
+F 1 "31.6k" V 1316 2450 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1130 2450 50  0001 C CNN
+F 3 "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_11.pdf" H 1200 2450 50  0001 C CNN
+F 4 "RC0805FR-0731K6L" H 1200 2450 50  0001 C CNN "MPN"
+F 5 "1% 1/8W" H 1200 2450 50  0001 C CNN "Value Modifier"
+	1    1200 2450
 	0    -1   -1   0   
 $EndComp
 $Comp
@@ -257,7 +257,7 @@ L Device:Battery_Cell BT1
 U 1 1 6061D9F9
 P 5600 6700
 F 0 "BT1" H 5718 6796 50  0000 L CNN
-F 1 "c" H 5718 6705 50  0000 L CNN
+F 1 "1066" H 5718 6705 50  0000 L CNN
 F 2 "sclock:BatteryHolder_Keystone_1066_1x2032" V 5600 6760 50  0001 C CNN
 F 3 "https://www.keyelco.com/product-pdf.cfm?p=723" V 5600 6760 50  0001 C CNN
 F 4 "1066" H 5600 6700 50  0001 C CNN "MPN"
@@ -503,13 +503,9 @@ F 5 "50V X7R" H 1200 6600 50  0001 C CNN "Value Modifier"
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1050 1450 1100 1450
+	1000 1450 1050 1450
 Wire Wire Line
-	1400 1450 1450 1450
-Wire Wire Line
-	1100 2450 1050 2450
-Wire Wire Line
-	1400 2450 1450 2450
+	1050 2450 1000 2450
 Wire Wire Line
 	3300 1250 4000 1250
 Connection ~ 3300 1250
@@ -565,7 +561,7 @@ U 1 1 60571604
 P 3400 1450
 F 0 "Q4" H 3050 1400 50  0000 L CNN
 F 1 "MMBT3906" H 2750 1500 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23" H 3600 1375 50  0001 L CIN
+F 2 "Package_TO_SOT_SMD:SOT-23_Handsoldering" H 3600 1375 50  0001 L CIN
 F 3 "https://www.onsemi.com/pub/Collateral/2N3906-D.PDF" H 3400 1450 50  0001 L CNN
 F 4 "MMBT3906LT1G" H 3400 1450 50  0001 C CNN "MPN"
 F 5 "PNP 40V 200mA" H 3400 1450 50  0001 C CNN "Value Modifier"
@@ -678,7 +674,7 @@ F 1 "MountingHole" H 8350 1005 50  0000 L CNN
 F 2 "MountingHole:MountingHole_3.2mm_M3_Pad" H 8250 1050 50  0001 C CNN
 F 3 "~" H 8250 1050 50  0001 C CNN
 F 4 "DNP" H 8250 1050 50  0001 C CNN "Population"
-F 5 "M2" H 8250 1050 50  0001 C CNN "Value Modifier"
+F 5 "M3" H 8250 1050 50  0001 C CNN "Value Modifier"
 	1    8250 1050
 	1    0    0    -1  
 $EndComp
@@ -691,7 +687,7 @@ F 1 "MountingHole" H 8350 1305 50  0000 L CNN
 F 2 "MountingHole:MountingHole_3.2mm_M3_Pad" H 8250 1350 50  0001 C CNN
 F 3 "~" H 8250 1350 50  0001 C CNN
 F 4 "DNP" H 8250 1350 50  0001 C CNN "Population"
-F 5 "M2" H 8250 1350 50  0001 C CNN "Value Modifier"
+F 5 "M3" H 8250 1350 50  0001 C CNN "Value Modifier"
 	1    8250 1350
 	1    0    0    -1  
 $EndComp
@@ -704,7 +700,7 @@ F 1 "MountingHole" H 8350 1605 50  0000 L CNN
 F 2 "MountingHole:MountingHole_3.2mm_M3_Pad" H 8250 1650 50  0001 C CNN
 F 3 "~" H 8250 1650 50  0001 C CNN
 F 4 "DNP" H 8250 1650 50  0001 C CNN "Population"
-F 5 "M2" H 8250 1650 50  0001 C CNN "Value Modifier"
+F 5 "M3" H 8250 1650 50  0001 C CNN "Value Modifier"
 	1    8250 1650
 	1    0    0    -1  
 $EndComp
@@ -717,14 +713,14 @@ F 1 "MountingHole" H 8350 1905 50  0000 L CNN
 F 2 "MountingHole:MountingHole_3.2mm_M3_Pad" H 8250 1950 50  0001 C CNN
 F 3 "~" H 8250 1950 50  0001 C CNN
 F 4 "DNP" H 8250 1950 50  0001 C CNN "Population"
-F 5 "M2" H 8250 1950 50  0001 C CNN "Value Modifier"
+F 5 "M3" H 8250 1950 50  0001 C CNN "Value Modifier"
 	1    8250 1950
 	1    0    0    -1  
 $EndComp
 Text Notes 10750 2250 2    50   ~ 0
 Battery Connector (Screw Terminal)
 Text Notes 8200 2250 0    50   ~ 0
-M2 Mouting Holes
+M3 Mouting Holes
 Wire Wire Line
 	1200 6450 1200 5650
 Wire Wire Line
@@ -882,67 +878,67 @@ $EndComp
 $Comp
 L Switch:SW_SPDT SW3
 U 1 1 6055B273
-P 7700 5650
-F 0 "SW3" H 7700 5935 50  0000 C CNN
-F 1 "SW_SPDT" H 7700 5844 50  0000 C CNN
-F 2 "Button_Switch_THT:SW_E-Switch_EG1271_DPDT" H 7700 5650 50  0001 C CNN
-F 3 "https://sten-eswitch-13110800-production.s3.amazonaws.com/system/asset/product_line/data_sheet/119/EG.pdf" H 7700 5650 50  0001 C CNN
-F 4 "EG1271" H 7700 5650 50  0001 C CNN "MPN"
-F 5 "SPDT 30V 300mA" H 7700 5650 50  0001 C CNN "Value Modifier"
-	1    7700 5650
+P 7150 5700
+F 0 "SW3" H 7150 5985 50  0000 C CNN
+F 1 "SW_SPDT" H 7150 5894 50  0000 C CNN
+F 2 "Button_Switch_THT:SW_E-Switch_EG1271_DPDT" H 7150 5700 50  0001 C CNN
+F 3 "https://sten-eswitch-13110800-production.s3.amazonaws.com/system/asset/product_line/data_sheet/119/EG.pdf" H 7150 5700 50  0001 C CNN
+F 4 "EG1271" H 7150 5700 50  0001 C CNN "MPN"
+F 5 "SPDT 30V 300mA" H 7150 5700 50  0001 C CNN "Value Modifier"
+	1    7150 5700
 	1    0    0    -1  
 $EndComp
-NoConn ~ 7900 5550
+NoConn ~ 7350 5600
 $Comp
 L power:PWR_FLAG #FLG02
 U 1 1 6055E33A
-P 7400 5650
-F 0 "#FLG02" H 7400 5725 50  0001 C CNN
-F 1 "PWR_FLAG" H 7400 5823 50  0000 C CNN
-F 2 "" H 7400 5650 50  0001 C CNN
-F 3 "~" H 7400 5650 50  0001 C CNN
-	1    7400 5650
+P 6850 5700
+F 0 "#FLG02" H 6850 5775 50  0001 C CNN
+F 1 "PWR_FLAG" H 6850 5873 50  0000 C CNN
+F 2 "" H 6850 5700 50  0001 C CNN
+F 3 "~" H 6850 5700 50  0001 C CNN
+	1    6850 5700
 	-1   0    0    1   
 $EndComp
 $Comp
 L power:+BATT #PWR020
 U 1 1 60558FA0
-P 7400 5650
-F 0 "#PWR020" H 7400 5500 50  0001 C CNN
-F 1 "+BATT" V 7415 5777 50  0000 L CNN
-F 2 "" H 7400 5650 50  0001 C CNN
-F 3 "" H 7400 5650 50  0001 C CNN
-	1    7400 5650
+P 6850 5700
+F 0 "#PWR020" H 6850 5550 50  0001 C CNN
+F 1 "+BATT" V 6865 5827 50  0000 L CNN
+F 2 "" H 6850 5700 50  0001 C CNN
+F 3 "" H 6850 5700 50  0001 C CNN
+	1    6850 5700
 	0    -1   -1   0   
 $EndComp
 $Comp
 L power:VCC #PWR022
 U 1 1 6055CE1E
-P 8000 5750
-F 0 "#PWR022" H 8000 5600 50  0001 C CNN
-F 1 "VCC" V 8015 5878 50  0000 L CNN
-F 2 "" H 8000 5750 50  0001 C CNN
-F 3 "" H 8000 5750 50  0001 C CNN
-	1    8000 5750
+P 8150 5800
+F 0 "#PWR022" H 8150 5650 50  0001 C CNN
+F 1 "VCC" V 8165 5928 50  0000 L CNN
+F 2 "" H 8150 5800 50  0001 C CNN
+F 3 "" H 8150 5800 50  0001 C CNN
+	1    8150 5800
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	7400 5650 7500 5650
-Connection ~ 7400 5650
+	6850 5700 6950 5700
+Connection ~ 6850 5700
 $Comp
 L power:PWR_FLAG #FLG03
 U 1 1 60565F8D
-P 8000 5750
-F 0 "#FLG03" H 8000 5825 50  0001 C CNN
-F 1 "PWR_FLAG" H 8000 5923 50  0000 C CNN
-F 2 "" H 8000 5750 50  0001 C CNN
-F 3 "~" H 8000 5750 50  0001 C CNN
-	1    8000 5750
+P 7450 5800
+F 0 "#FLG03" H 7450 5875 50  0001 C CNN
+F 1 "PWR_FLAG" H 7450 5973 50  0000 C CNN
+F 2 "" H 7450 5800 50  0001 C CNN
+F 3 "~" H 7450 5800 50  0001 C CNN
+	1    7450 5800
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	8000 5750 7900 5750
-Connection ~ 8000 5750
+	7450 5800 7350 5800
+Connection ~ 7450 5800
 $Comp
 L power:VCC #PWR025
 U 1 1 605680BA
@@ -982,10 +978,10 @@ U 1 1 60569944
 P 8850 5750
 F 0 "C5" H 8968 5796 50  0000 L CNN
 F 1 "10µF" H 8968 5705 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 8888 5600 50  0001 C CNN
-F 3 "https://content.kemet.com/datasheets/KEM_C1006_X5R_SMD.pdf" H 8850 5750 50  0001 C CNN
-F 4 "C0805C106K8PACTU" H 8850 5750 50  0001 C CNN "MPN"
-F 5 "10V X5R" H 8850 5750 50  0001 C CNN "Value Modifier"
+F 2 "Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A_Pad1.58x1.35mm_HandSolder" H 8888 5600 50  0001 C CNN
+F 3 "https://content.kemet.com/datasheets/KEM_T2008_T494.pdf" H 8850 5750 50  0001 C CNN
+F 4 "T494A106K010AT" H 8850 5750 50  0001 C CNN "MPN"
+F 5 "10V 10%" H 8850 5750 50  0001 C CNN "Value Modifier"
 	1    8850 5750
 	1    0    0    -1  
 $EndComp
@@ -995,10 +991,10 @@ U 1 1 6056A751
 P 10350 5750
 F 0 "C8" H 10468 5796 50  0000 L CNN
 F 1 "10µF" H 10468 5705 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder" H 10388 5600 50  0001 C CNN
-F 3 "https://content.kemet.com/datasheets/KEM_C1006_X5R_SMD.pdf" H 10350 5750 50  0001 C CNN
-F 4 "C0805C106K8PACTU" H 10350 5750 50  0001 C CNN "MPN"
-F 5 "10V X5R" H 10350 5750 50  0001 C CNN "Value Modifier"
+F 2 "Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A_Pad1.58x1.35mm_HandSolder" H 10388 5600 50  0001 C CNN
+F 3 "https://content.kemet.com/datasheets/KEM_T2008_T494.pdf" H 10350 5750 50  0001 C CNN
+F 4 "T494A106K010AT" H 10350 5750 50  0001 C CNN "MPN"
+F 5 "10V 10%" H 10350 5750 50  0001 C CNN "Value Modifier"
 	1    10350 5750
 	1    0    0    -1  
 $EndComp
@@ -1053,7 +1049,7 @@ F 3 "" H 6950 3050 50  0001 C CNN
 	1    6950 3050
 	1    0    0    -1  
 $EndComp
-Text GLabel 7300 3750 0    50   Input ~ 0
+Text GLabel 6650 3750 0    50   Input ~ 0
 SHDN
 $Comp
 L Device:C C2
@@ -1130,7 +1126,7 @@ F 1 "10µF" H 8268 3155 50  0000 L CNN
 F 2 "Capacitor_Tantalum_SMD:CP_EIA-7343-31_Kemet-D_Pad2.25x2.55mm_HandSolder" H 8188 3050 50  0001 C CNN
 F 3 "https://content.kemet.com/datasheets/KEM_T2009_T495.pdf" H 8150 3200 50  0001 C CNN
 F 4 "T495D106K035ATE125" H 8150 3200 50  0001 C CNN "MPN"
-F 5 "35V" H 8150 3200 50  0001 C CNN "Value Modifier"
+F 5 "35V 10%" H 8150 3200 50  0001 C CNN "Value Modifier"
 F 6 "" H 8150 3200 50  0001 C CNN "Population"
 	1    8150 3200
 	1    0    0    -1  
@@ -1266,7 +1262,7 @@ F 1 "10µF" H 10418 4005 50  0000 L CNN
 F 2 "Capacitor_Tantalum_SMD:CP_EIA-7343-31_Kemet-D_Pad2.25x2.55mm_HandSolder" H 10338 3900 50  0001 C CNN
 F 3 "https://content.kemet.com/datasheets/KEM_T2009_T495.pdf" H 10300 4050 50  0001 C CNN
 F 4 "T495D106K035ATE125" H 10300 4050 50  0001 C CNN "MPN"
-F 5 "35V" H 10300 4050 50  0001 C CNN "Value Modifier"
+F 5 "35V 10%" H 10300 4050 50  0001 C CNN "Value Modifier"
 F 6 "" H 10300 4050 50  0001 C CNN "Population"
 	1    10300 4050
 	1    0    0    -1  
@@ -1342,19 +1338,19 @@ Connection ~ 6950 3050
 $Comp
 L power:GND #PWR019
 U 1 1 6064CF99
-P 7300 4150
-F 0 "#PWR019" H 7300 3900 50  0001 C CNN
-F 1 "GND" V 7305 4022 50  0000 R CNN
-F 2 "" H 7300 4150 50  0001 C CNN
-F 3 "" H 7300 4150 50  0001 C CNN
-	1    7300 4150
+P 6650 4150
+F 0 "#PWR019" H 6650 3900 50  0001 C CNN
+F 1 "GND" V 6655 4022 50  0000 R CNN
+F 2 "" H 6650 4150 50  0001 C CNN
+F 3 "" H 6650 4150 50  0001 C CNN
+	1    6650 4150
 	0    1    1    0   
 $EndComp
 Text Notes 10700 4750 2    50   ~ 0
 24V/12V Power Supply
 Text Notes 10700 6250 2    50   ~ 0
 3V3 Power Supply
-Text Notes 8000 6200 2    50   ~ 0
+Text Notes 7450 6250 2    50   ~ 0
 Main Power Switch
 $Comp
 L Connector:Conn_01x03_Male J4
@@ -1397,4 +1393,137 @@ F 5 "1% 1/8W" H 3700 4100 50  0001 C CNN "Value Modifier"
 	1    3700 4100
 	0    1    1    0   
 $EndComp
+$Comp
+L Device:Q_PMOS_GSD Q7
+U 1 1 60667B5C
+P 7750 5900
+F 0 "Q7" V 8092 5900 50  0000 C CNN
+F 1 "Si2323CDS" V 8001 5900 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23_Handsoldering" H 7950 6000 50  0001 C CNN
+F 3 "https://www.vishay.com/docs/72024/72024.pdf" H 7750 5900 50  0001 C CNN
+F 4 "SI2323CDS-T1-GE3" H 7750 5900 50  0001 C CNN "MPN"
+F 5 "PMOS 20V" H 7750 5900 50  0001 C CNN "Value Modifier"
+	1    7750 5900
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7450 5800 7550 5800
+$Comp
+L power:GND #PWR035
+U 1 1 606747E5
+P 7750 6100
+F 0 "#PWR035" H 7750 5850 50  0001 C CNN
+F 1 "GND" H 7755 5927 50  0000 C CNN
+F 2 "" H 7750 6100 50  0001 C CNN
+F 3 "" H 7750 6100 50  0001 C CNN
+	1    7750 6100
+	1    0    0    -1  
+$EndComp
+Text Notes 7450 5450 0    50   ~ 0
+Reverse Current Protection
+$Comp
+L power:PWR_FLAG #FLG0101
+U 1 1 606845E1
+P 8050 5800
+F 0 "#FLG0101" H 8050 5875 50  0001 C CNN
+F 1 "PWR_FLAG" H 8050 5973 50  0000 C CNN
+F 2 "" H 8050 5800 50  0001 C CNN
+F 3 "~" H 8050 5800 50  0001 C CNN
+	1    8050 5800
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	8050 5800 7950 5800
+Connection ~ 8050 5800
+Wire Wire Line
+	8050 5800 8150 5800
+$Comp
+L Device:R R11
+U 1 1 606938F9
+P 1400 1650
+F 0 "R11" H 1470 1696 50  0000 L CNN
+F 1 "1M" H 1470 1605 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1330 1650 50  0001 C CNN
+F 3 "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_11.pdf" H 1400 1650 50  0001 C CNN
+F 4 " RC0805FR-071ML" H 1400 1650 50  0001 C CNN "MPN"
+F 5 "1% 1/8W" H 1400 1650 50  0001 C CNN "Value Modifier"
+	1    1400 1650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R12
+U 1 1 60694806
+P 1400 2650
+F 0 "R12" H 1470 2696 50  0000 L CNN
+F 1 "1M" H 1470 2605 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 1330 2650 50  0001 C CNN
+F 3 "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_11.pdf" H 1400 2650 50  0001 C CNN
+F 4 " RC0805FR-071ML" H 1400 2650 50  0001 C CNN "MPN"
+F 5 "1% 1/8W" H 1400 2650 50  0001 C CNN "Value Modifier"
+	1    1400 2650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1350 1450 1400 1450
+Wire Wire Line
+	1400 1450 1450 1450
+Connection ~ 1400 1450
+$Comp
+L power:GND #PWR036
+U 1 1 606A49DA
+P 1400 1800
+F 0 "#PWR036" H 1400 1550 50  0001 C CNN
+F 1 "GND" H 1405 1627 50  0000 C CNN
+F 2 "" H 1400 1800 50  0001 C CNN
+F 3 "" H 1400 1800 50  0001 C CNN
+	1    1400 1800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1400 1500 1400 1450
+Wire Wire Line
+	1350 2450 1400 2450
+Wire Wire Line
+	1400 2500 1400 2450
+Connection ~ 1400 2450
+Wire Wire Line
+	1400 2450 1450 2450
+$Comp
+L power:GND #PWR037
+U 1 1 606B1A6D
+P 1400 2800
+F 0 "#PWR037" H 1400 2550 50  0001 C CNN
+F 1 "GND" H 1405 2627 50  0000 C CNN
+F 2 "" H 1400 2800 50  0001 C CNN
+F 3 "" H 1400 2800 50  0001 C CNN
+	1    1400 2800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R13
+U 1 1 606B288A
+P 6700 3950
+F 0 "R13" H 6770 3996 50  0000 L CNN
+F 1 "1M" H 6770 3905 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 6630 3950 50  0001 C CNN
+F 3 "https://www.yageo.com/upload/media/product/productsearch/datasheet/rchip/PYu-RC_Group_51_RoHS_L_11.pdf" H 6700 3950 50  0001 C CNN
+F 4 " RC0805FR-071ML" H 6700 3950 50  0001 C CNN "MPN"
+F 5 "1% 1/8W" H 6700 3950 50  0001 C CNN "Value Modifier"
+	1    6700 3950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6650 3750 6700 3750
+Wire Wire Line
+	6700 3800 6700 3750
+Connection ~ 6700 3750
+Wire Wire Line
+	6650 4150 6700 4150
+Wire Wire Line
+	6700 4100 6700 4150
+Connection ~ 6700 4150
+Wire Wire Line
+	6700 3750 7300 3750
+Wire Wire Line
+	6700 4150 7300 4150
 $EndSCHEMATC

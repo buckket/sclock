@@ -115,10 +115,6 @@ F 3 "" H 2500 3400 50  0001 C CNN
 	1    2500 3400
 	0    -1   -1   0   
 $EndComp
-Text Notes 2300 1150 0    50   ~ 0
-FIXME: Pullup R3 on reset line is no longer needed
-Text Notes 2300 1250 0    50   ~ 0
-FIXME: Short C8 to allow UPDI programming via DTR
 Text GLabel 1900 2500 0    50   Output ~ 0
 TXO
 Text GLabel 1900 2600 0    50   Input ~ 0
@@ -139,8 +135,6 @@ Text GLabel 3100 2900 2    50   Input ~ 0
 INT0
 Text GLabel 3100 3000 2    50   Input ~ 0
 CONFIG
-Text Notes 2300 1350 0    50   ~ 0
-TODO: Check if Pullups on SDA/SCL/INT lines are really enabled
 $Comp
 L power:+3V3 #PWR0105
 U 1 1 6040655B
