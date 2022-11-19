@@ -4,3 +4,4 @@ CMake*
 cmake*
 attiny/sclock_tiny/Debug
 attiny/sclock_tiny/Release
+hardware/sclock_new/sclock_new-backups
