@@ -4,6 +4,6 @@
 #include <avr/io.h>
 #include <avr/cpufunc.h>
 
-int8_t CLKCTRL_init();
+void CLKCTRL_init();
 
 #endif /* CLKCTRL_H_ */

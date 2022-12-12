@@ -13,18 +13,18 @@ void CLOCK_init(void) {
 	VPORTA.DIR |= CLOCK_PIN_SHDN | CLOCK_PIN1 | CLOCK_PIN2;
 
 	// Set CLOCK_PIN_CONFIG and CLOCK_PIN_INT as input
-	VPORTA.DIR &= ~(CLOCK_PIN_CONFIG | CLOCK_PIN_INT);
+	VPORTA.DIR &= ~(CLOCK_PIN_RESET | CLOCK_PIN_CONFIG | CLOCK_PIN_INT);
 
 	// Enable pull-ups for CLOCK_PIN_INT and CLOCK_PIN_CONFIG
+    // CLOCK_PIN_RESET already has as an external pull-up resistor
 	PORTA.PIN6CTRL = PORT_PULLUPEN_bm;
 	PORTA.PIN7CTRL = PORT_PULLUPEN_bm;
 
 	// Define unused pins as inputs
-	VPORTA.DIR &= ~(PIN4_bm | PIN5_bm);
+	VPORTA.DIR &= ~(PIN4_bm);
 
 	// Enable pull-ups and disable input buffer for unused pins
 	PORTA.PIN4CTRL = PORT_PULLUPEN_bm | PORT_ISC_INPUT_DISABLE_gc;
-	PORTA.PIN5CTRL = PORT_PULLUPEN_bm | PORT_ISC_INPUT_DISABLE_gc;
 }
 
 uint8_t CLOCK_generate_pulse(uint8_t last_pulse) {
@@ -56,4 +56,17 @@ void CLOCK_increment_time(time_struct *clock, uint8_t last_pulse) {
 		clock->hours = (clock->hours + 1) % 12;
 	}
 	clock->hours = (clock->hours % 12) + (last_pulse - 1) * 12;
+}
+
+uint8_t CLOCK_count_press(void) {
+    uint8_t i = 0;
+    while(!BUTTON_get_key_press(CLOCK_PIN_CONFIG)) {
+        if (BUTTON_get_key_press(CLOCK_PIN_RESET)) {
+            i++;
+        }
+        SLPCTRL.CTRLA = SLPCTRL_SMODE_IDLE_gc | SLPCTRL_SEN_bm;
+        sleep_cpu();
+        SLPCTRL.CTRLA = 0;
+    }
+    return i;
 }

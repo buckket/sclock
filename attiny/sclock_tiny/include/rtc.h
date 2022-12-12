@@ -9,10 +9,10 @@
 
 void RTC_init(void);
 
+void RTC_PIT_enable(void);
+
+void RTC_PIT_disable(void);
+
 void RTC_sleep(uint16_t period);
-
-void RTC_PIR_enable(void);
-
-void RTC_PIR_disable(void);
 
 #endif /* RTC_H_ */

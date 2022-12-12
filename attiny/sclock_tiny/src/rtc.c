@@ -7,20 +7,35 @@ void RTC_init(void) {
     // Select internal 1kHz oscillator
     RTC.CLKSEL = RTC_CLKSEL_INT1K_gc;
 
-    #ifdef _DEBUG
+    #ifndef NDEBUG
     // Run in DEBUG mode
     RTC.DBGCTRL = RTC_DBGRUN_bm;
+    RTC.PITDBGCTRL = RTC_DBGRUN_bm;
     #endif
 
     // Set prescaler to 1, and enable run in standby
     RTC.CTRLA = RTC_PRESCALER_DIV1_gc | RTC_RUNSTDBY_bm;
 
     // Enable overflow interrupt
-    RTC.INTCTRL |= RTC_OVF_bm;
+    RTC.INTCTRL = RTC_OVF_bm;
 
-    // Set PIR period to ~ 7ms
+    // Set PIT period to ~ 7ms
     while (RTC.PITSTATUS > 0);
     RTC.PITCTRLA = RTC_PERIOD_CYC8_gc;
+}
+
+void RTC_PIT_enable(void) {
+    while (RTC.PITSTATUS > 0);
+    RTC.PITINTFLAGS = RTC_PI_bm;
+    RTC.PITINTCTRL = RTC_PI_bm;
+    RTC.PITCTRLA |= RTC_PITEN_bm;
+}
+
+void RTC_PIT_disable(void) {
+    while (RTC.PITSTATUS > 0);
+    RTC.PITCTRLA &= ~RTC_PITEN_bm;
+    RTC.PITINTCTRL = 0;
+    RTC.PITINTFLAGS = RTC_PI_bm;
 }
 
 void RTC_sleep(uint16_t period) {
@@ -45,9 +60,10 @@ void RTC_sleep(uint16_t period) {
     while(!(RTC.INTFLAGS & RTC_OVF_bm));
 
     // Clear interrupt flags
-    RTC.INTFLAGS = RTC_OVF_bm;
+    RTC.INTFLAGS |= RTC_OVF_bm;
 
     // Disable RTC
+    while (RTC.STATUS & RTC_CTRLABUSY_bm);
     RTC.CTRLA &= ~RTC_RTCEN_bm;
 
     // Reset counter
@@ -56,18 +72,6 @@ void RTC_sleep(uint16_t period) {
 
     // Disable sleep mode
     SLPCTRL.CTRLA = 0;
-}
-
-void RTC_PIR_enable(void) {
-    while (RTC.PITSTATUS > 0);
-    RTC.PITINTCTRL = RTC_PI_bm;
-    RTC.PITCTRLA |= RTC_PITEN_bm;
-}
-
-void RTC_PIR_disable(void) {
-    while (RTC.PITSTATUS > 0);
-    RTC.PITCTRLA &= ~RTC_PITEN_bm;
-    RTC.PITINTCTRL = 0;
 }
 
 EMPTY_INTERRUPT(RTC_CNT_vect)

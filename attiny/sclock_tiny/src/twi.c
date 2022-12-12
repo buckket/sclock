@@ -1,8 +1,8 @@
 #include "twi.h"
 
 void TWI0_init(void) {
-    #ifdef _DEBUG
-    // Enable Debug mode
+    #ifndef NDEBUG
+    // Run in Debug mode
     TWI0.DBGCTRL = TWI_DBGRUN_bm;
     #endif
 
@@ -30,12 +30,6 @@ uint8_t TWI0_start(uint8_t address) {
         return 1;
     }
 
-    // Clear WIF, which was sent in TX mode
-    TWI0.MSTATUS |= TWI_WIF_bm;
-
-    // Prime first transaction
-    TWI0.MCTRLB = TWI_MCMD_RECVTRANS_gc;
-
     return 0;
 }
 
@@ -50,6 +44,7 @@ void TWI0_stop(void) {
 uint8_t TWI0_read(uint8_t ack) {
     // Wait for incoming data
     while (!(TWI0.MSTATUS & TWI_RIF_bm));
+    uint8_t data = TWI0.MDATA;
 
     if (ack) {
         // Send ACK and receive more data
@@ -60,7 +55,7 @@ uint8_t TWI0_read(uint8_t ack) {
         TWI0.MCTRLB = TWI_ACKACT_NACK_gc;
     }
 
-    return TWI0.MDATA;
+    return data;
 }
 
 uint8_t TWI0_write(uint8_t data) {

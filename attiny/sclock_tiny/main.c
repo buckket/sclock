@@ -19,112 +19,155 @@ volatile uint8_t alarm_counter = 0;
 
 int main(void) {
 	CLKCTRL_init();
-	USART0_init();
-	TWI0_init();
-	RTC_init();
-	CLOCK_init();
+    USART0_init();
+    TWI0_init();
+    RTC_init();
+    CLOCK_init();
 
-	sei();
+    sei();
 
-	char *buffer = malloc(sizeof(char) * 100);
+    //char *buffer = malloc(sizeof(char) * 100);
+    char buffer[100];
 
-	time_struct *real_time = malloc(sizeof(time_struct));
-	time_struct *clock_time = malloc(sizeof(time_struct));
+    //time_struct *real_time = malloc(sizeof(time_struct));
+    //time_struct *clock_time = malloc(sizeof(time_struct));
+    time_struct real_time = {0};
+    time_struct clock_time = {0};
 
-	uint16_t queue = 0;
-	uint8_t last_pulse;
+    uint16_t queue = 0;
+    uint8_t last_pulse;
 
-	USART0_puts("\r\n\nHello, this is sclock " VERSION "!\r\n");
+    USART0_puts("\r\n\nHello, this is sclock " VERSION "!\r\n");
 
-	uint8_t use_rtc = VPORTA.IN & CLOCK_PIN_CONFIG;                     // Is CLOCK_PIN_CONFIG pressed?
-	//PORTA.PIN7CTRL = PORT_PULLUPEN_bm | PORT_ISC_INPUT_DISABLE_gc;	// Disable input buffer for CLOCK_PIN_CONFIG, no longer needed
+    uint8_t use_rtc = VPORTA.IN & CLOCK_PIN_CONFIG;
+    if (use_rtc) {
+        USART0_puts("\r\nUsing RTC module to get time");
+        DS3231_read_time(&real_time);
+        DS3231_read_alarm1(&clock_time);
+        real_time.hours = real_time.hours % 12;
+        last_pulse = (clock_time.hours / 12) + 1;
+        clock_time.hours = clock_time.hours % 12;
+    } else {
+        RTC_PIT_enable();
 
-	// HACK: Use config button as software reset
-	PORTA.PIN7CTRL = PORT_PULLUPEN_bm | PORT_ISC_LEVEL_gc;
+        USART0_puts("\r\nConfig mode enabled!\r\nPress SW2 to move watch hand...");
 
-	if (use_rtc) {
-		DS3231_read_time(real_time);
-		DS3231_read_alarm1(clock_time);
-		real_time->hours = real_time->hours % 12;
-		last_pulse = (clock_time->hours / 12) + 1;
-		clock_time->hours = clock_time->hours % 12;
-	} else {
-		USART0_puts("\r\nPress any key to move watch hand... ");
-		USART0_receive();
-		last_pulse = CLOCK_generate_pulse(1);
+        SLPCTRL.CTRLA = SLPCTRL_SMODE_PDOWN_gc | SLPCTRL_SEN_bm;
+        while (BUTTON_get_key_press(CLOCK_PIN_CONFIG)) sleep_cpu();     // Make sure button was released
+        while (!BUTTON_get_key_press(CLOCK_PIN_CONFIG)) sleep_cpu();    // Now we can check for a key press
+        SLPCTRL.CTRLA = 0;
 
-		USART0_puts("\r\nEnter current clock time [hh:mm]: ");
-		USART0_gets(buffer, 5);
-		clock_time->hours = strtol(buffer, NULL, 10) % 12;
-		clock_time->hours = clock_time->hours + (last_pulse - 1) * 12;
-		clock_time->minutes = strtol(buffer + 3, NULL, 10) % 60;
-		clock_time->seconds = 0;
-		DS3231_write_alarm1(clock_time);
-		clock_time->hours = clock_time->hours % 12;
+        RTC_PIT_disable();                                  // We need to disable PIT so we don't wake early
+        last_pulse = CLOCK_generate_pulse(1);               // Generate initial pulse to get to a known state
+        RTC_PIT_enable();                                   // Re-enable PIT, side note: disabling RTC breaks PIT anyway (see errata)
 
-		USART0_puts("\r\nEnter real world time [hh:mm]: ");
-		USART0_gets(buffer, 5);
-		real_time->hours = strtol(buffer, NULL, 10) % 12;
-		real_time->minutes = strtol(buffer + 3, NULL, 10) % 60;
-		real_time->seconds = 0;
-	}
+        // Reset key press state back to zero
+        BUTTON_get_key_press(CLOCK_PIN_CONFIG | CLOCK_PIN_RESET);
 
-	queue = (720 + (real_time->hours * 60 + real_time->minutes) - (clock_time->hours * 60 + clock_time->minutes)) % 720;
-	sprintf(buffer, "\r\nClock has to move %d times!\r\nReal time:  %02d:%02d\r\nClock time: %02d:%02d\r\n", queue,
-	    real_time->hours, real_time->minutes,
-	    clock_time->hours, clock_time->minutes);
-	USART0_puts(buffer);
+        uint8_t d1, d0; // x = d1*10^1 + d0*10^0
 
-	if (!use_rtc) {
-		USART0_puts("\r\nPress any key to start clock... ");
-		USART0_receive();
-		DS3231_write_time(real_time);
-	}
+        // CLOCK TIME START
+        USART0_puts("\r\n\nEnter current clock time [h,h,m,m]: ");
 
-	free(real_time);
-	free(buffer);
+        d1 = CLOCK_count_press();
+        USART0_transmit(d1 + 48); // poor man's itoa()
+        d0 = CLOCK_count_press();
+        USART0_transmit(d0 + 48); // poor man's itoa()
+        clock_time.hours = ((d1*10 + d0) % 12) + (last_pulse - 1) * 12;
 
-	USART0_disable();
+        USART0_transmit(58); // :
 
-	DS3231_enable_alarm2();							// Set Alarm2 mask to get alerted every minute
-	DS3231_write_control((1 << DS3231_CTRL_INTCN)	// Enable alarm function on INT pin
-		| (1 << DS3231_CTRL_A2IE));					// Activate Alarm2 interrupt
-	DS3231_write_status(0);							// Clear interrupt flags
+        d1 = CLOCK_count_press();
+        USART0_transmit(d1 + 48); // poor man's itoa()
+        d0 = CLOCK_count_press();
+        USART0_transmit(d0 + 48); // poor man's itoa()
+        clock_time.minutes = (d1*10 + d0) % 60;
 
-	CLOCK_enable_interrupt();
+        DS3231_write_alarm1(&clock_time);
+        // CLOCK TIME END
 
-	while (1) {
-		if (alarm_counter > 0) {
-			DS3231_write_status(0);
-			cli();
-			queue += alarm_counter;
-			alarm_counter = 0;
-			sei();
-		}
-		if (queue > 0) {
-			last_pulse = CLOCK_generate_pulse(last_pulse);
-			CLOCK_increment_time(clock_time, last_pulse);
-			DS3231_write_alarm1(clock_time);
-			queue--;
-		}
-		if ((queue > 0) | (alarm_counter > 0)) {
-			RTC_sleep(RTC_MS_TO_PERIOD(CLOCK_COOLDOWN));
-		} else {
-			SLPCTRL.CTRLA = SLPCTRL_SMODE_PDOWN_gc | SLPCTRL_SEN_bm;
-			sleep_cpu();
-			SLPCTRL.CTRLA = 0;
-		}
-	}
+        // REAL TIME START
+        USART0_puts("\r\nEnter real world time [h,h,m,m]: ");
+
+        d1 = CLOCK_count_press();
+        USART0_transmit(d1 + 48); // poor man's itoa()
+        d0 = CLOCK_count_press();
+        USART0_transmit(d0 + 48); // poor man's itoa()
+        real_time.hours = (d1*10 + d0) % 12;
+
+        USART0_transmit(58); // :
+
+        d1 = CLOCK_count_press();
+        USART0_transmit(d1 + 48); // poor man's itoa()
+        d0 = CLOCK_count_press();
+        USART0_transmit(d0 + 48); // poor man's itoa()
+        real_time.minutes = (d1*10 + d0) % 60;
+        // REAL TIME END
+    }
+
+    queue = (720 + (real_time.hours * 60 + real_time.minutes) - ((clock_time.hours % 12) * 60 + clock_time.minutes)) % 720;
+    sprintf(buffer, "\r\n\nClock has to move %u times!\r\nReal time:  %02u:%02u\r\nClock time: %02u:%02u\r\n",
+        queue,
+        real_time.hours, real_time.minutes,
+        clock_time.hours % 12, clock_time.minutes);
+    USART0_puts(buffer);
+
+    if (!use_rtc) {
+        USART0_puts("\r\nPress SW2 to start clock...");
+        while (!BUTTON_get_key_press(CLOCK_PIN_CONFIG));
+        DS3231_write_time(&real_time);
+        RTC_PIT_disable();
+    }
+
+    //free(real_time);
+    //free(buffer);
+
+    USART0_disable();
+
+    DS3231_enable_alarm2();							// Set ALARM2 mask to get alerted every minute
+    DS3231_write_control((1 << DS3231_CTRL_INTCN)	// Enable alarm function on INT pin
+    | (1 << DS3231_CTRL_A2IE));				    	// Activate ALARM2 interrupt
+    DS3231_write_status(0);							// Clear interrupt flags
+
+    CLOCK_enable_interrupt();
+
+    // Enable software reset on low level interrupt on CLOCK_PIN_RESET
+    PORTA.PIN5CTRL = PORT_ISC_LEVEL_gc;
+
+    // Disable CLOCK_PIN_CONFIG, no longer needed
+    PORTA.PIN7CTRL = PORT_PULLUPEN_bm | PORT_ISC_INPUT_DISABLE_gc;
+
+    while (1) {
+        if (alarm_counter) {
+            DS3231_write_status(0);
+            cli();
+            queue += alarm_counter;
+            alarm_counter = 0;
+            sei();
+        }
+        if (queue) {
+            last_pulse = CLOCK_generate_pulse(last_pulse);
+            CLOCK_increment_time(&clock_time, last_pulse);
+            DS3231_write_alarm1(&clock_time);
+            queue--;
+        }
+        if (queue | alarm_counter) {
+            RTC_sleep(RTC_MS_TO_PERIOD(CLOCK_COOLDOWN));
+        } else {
+            SLPCTRL.CTRLA = SLPCTRL_SMODE_PDOWN_gc | SLPCTRL_SEN_bm;
+            sleep_cpu();
+            SLPCTRL.CTRLA = 0;
+        }
+    }
 }
 
 ISR(PORTA_PORT_vect) {
-	// TODO: Debounce Soft-Reset
-	if (VPORTA.INTFLAGS & CLOCK_PIN_CONFIG) {
-		ccp_write_io((void *)&(RSTCTRL.SWRR),
-		1 << RSTCTRL_SWRE_bp);
-	}
-	if (VPORTA.INTFLAGS & CLOCK_PIN_INT) {
-		VPORTA.INTFLAGS |= CLOCK_PIN_INT;
-		alarm_counter++;
-	}
+    if (VPORTA.INTFLAGS & CLOCK_PIN_RESET) {
+        ccp_write_io((void *)&(RSTCTRL.SWRR),
+        1 << RSTCTRL_SWRE_bp);
+    }
+    if (VPORTA.INTFLAGS & CLOCK_PIN_INT) {
+        VPORTA.INTFLAGS |= CLOCK_PIN_INT;
+        alarm_counter++;
+    }
 }

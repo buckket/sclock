@@ -9,8 +9,7 @@ ISR(RTC_PIT_vect) {
 	static uint8_t ct0 = 0xFF, ct1 = 0xFF;
 	uint8_t i;
 
-	// TODO: Change to VPORTA
-	i = key_state ^ ~VPORTC.IN;
+	i = key_state ^ ~VPORTA.IN;
 	ct0 = ~(ct0 & i);
 	ct1 = ct0 ^ (ct1 & i);
 	i &= ct0 & ct1;
@@ -25,4 +24,9 @@ uint8_t BUTTON_get_key_press(uint8_t key_mask) {
 	key_press ^= key_mask;
 	sei();
 	return key_mask;
+}
+
+uint8_t BUTTON_get_key_state(uint8_t key_mask) {
+    key_mask &= key_state;
+    return key_mask;
 }

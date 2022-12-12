@@ -6,4 +6,6 @@
 
 uint8_t BUTTON_get_key_press(uint8_t key_mask);
 
+uint8_t BUTTON_get_key_state(uint8_t key_mask);
+
 #endif /* BUTTON_H_ */
